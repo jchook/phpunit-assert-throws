@@ -16,6 +16,8 @@ PHPUnit's current "[best practices](https://thephp.cc/news/2016/02/questioning-p
 I opened a [Github issue](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478) for PHPUnit and was immediately dismissed by the maintainer.
 
 Since I strongly disagree with the current [`expectException`](http://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#writing-tests-for-phpunit-exceptions) implementation, I made this trait, which I `use` on my test cases. Here is an example to illustrate usage:
+
+
 ## Simple Example
 
 Just to illustrate the spirit behind the syntax correction:

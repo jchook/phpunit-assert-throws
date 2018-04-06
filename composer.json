@@ -9,7 +9,9 @@
             "email": "u36g@a.zinc.email"
         }
     ],
-    "files": ["AssertThrown.php"],
+    "autoload": {
+      "files": ["AssertThrown.php"],
+    },
     "minimum-stability": "stable",
     "require": {}
 }
