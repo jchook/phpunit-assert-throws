@@ -1,0 +1,15 @@
+{
+    "name": "jchook/phpunit-assert-thrown",
+    "description": "Exception assertions for PHPUnit",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wes Roberts",
+            "email": "u36g@a.zinc.email"
+        }
+    ],
+    "files": ["AssertThrown.php"],
+    "minimum-stability": "stable",
+    "require": {}
+}
