@@ -10,7 +10,9 @@
         }
     ],
     "autoload": {
-      "files": ["AssertThrown.php"]
+        "psr-0": {
+            "Jchook\\AssertThrown": "" 
+        }
     },
     "minimum-stability": "stable",
     "require": {}
