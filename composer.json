@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-      "files": ["AssertThrown.php"],
+      "files": ["AssertThrown.php"]
     },
     "minimum-stability": "stable",
     "require": {}
