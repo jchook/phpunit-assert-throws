@@ -4,7 +4,7 @@ Exception testing assertions for PHPUnit.
 
 ## Installation
 
-You can install with composer if you're into that. Just make sure that your `vendor/autoload.php` file is included in your [bootstrap file](http://phpunit.readthedocs.io/en/7.1/textui.html?highlight=bootstrap#command-line-options).
+You can install with composer if you're into that. Just make sure that your `vendor/autoload.php` file is included in your PHPUnit bootstrap file.
 
 ```sh
 composer require --dev jchook/phpunit-assert-throws
