@@ -17,8 +17,8 @@ Or simply [download the one file](https://raw.githubusercontent.com/jchook/phpun
 
 PHPUnit's current "[best practices](https://thephp.cc/news/2016/02/questioning-phpunit-best-practices)" for exception testing seem lackluster.
 
-* Doesn't support multiple exceptions per test, or assertions called after the exception is thrown
-* Documentation lacks useful or clear examples
+* Doesn't support multiple exceptions per test, or making any assertions after the exception is thrown
+* Documentation lacks robust or clear examples
 * Non-standard and potentially confusing syntax ("expect" vs "assert")
 * Only supports expectations for message, code, and exception class
 * No inverse, such as "expectNotException"
@@ -90,6 +90,15 @@ final class MyTest extends TestCase
 		});
 	}
 }
+
+?>
 ```
 
+## Notes
 
+I realize that `assertNotThrows()` is grammatically... odd, but it's in keeping with the PHPUnit naming conventions, such as [`assertNotContains()`](https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertContains). Additionally, the PHPUnit team's philosophy is that [this inverse assertion is not even needed](https://github.com/sebastianbergmann/phpunit-documentation/issues/171).
+
+
+## License
+
+MIT
