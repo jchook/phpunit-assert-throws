@@ -1,5 +1,5 @@
 {
-    "name": "jchook/phpunit-assert-thrown",
+    "name": "jchook/phpunit-assert-throws",
     "description": "Exception assertions for PHPUnit",
     "type": "library",
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-0": {
-            "Jchook\\AssertThrown": "" 
+            "Jchook\\AssertThrown\\": "src/" 
         }
     },
     "minimum-stability": "stable",

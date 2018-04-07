@@ -1,18 +1,18 @@
 <?php
 
-namespace Jchook\AssertThrown;
+namespace Jchook\AssertThrows;
 
 use PHPUnit\Framework\Constraint\Exception as ConstraintException;
 use PHPUnit\Framework\Constraint\LogicalNot;
 use PHPUnit\Framework\ExpectationFailedException;
 
-trait AssertThrown
+trait AssertThrows
 {
 	/**
 	 * @param string $class
 	 * @param callable $execute
 	 */
-	protected function assertNotThrown($class, callable $execute)
+	protected function assertNotThrows($class, callable $execute)
 	{
 		$exception = null;
 		try {
@@ -31,7 +31,7 @@ trait AssertThrown
 	 * @param callable $execute
 	 * @param callable|null $inspect optional
 	 */
-	protected function assertThrown($class, callable $execute, callable $inspect = null)
+	protected function assertThrows($class, callable $execute, callable $inspect = null)
 	{
 		$exception = null;
 		try {
