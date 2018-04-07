@@ -10,7 +10,7 @@ You can install with composer if you're into that:
 composer require --dev jchook/phpunit-assert-throws
 ```
 
-Or simply [download the one file](https://raw.githubusercontent.com/jchook/phpunit-assert-throws/master/AssertThrown.php) and include it in your project.
+Or simply [download the one file](https://raw.githubusercontent.com/jchook/phpunit-assert-throws/master/src/AssertThrows.php) and include it in your project.
 
 
 ## Rationale
