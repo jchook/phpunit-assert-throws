@@ -15,24 +15,23 @@ Alternatively, simply [download the one file](https://raw.githubusercontent.com/
 
 ## Rationale
 
-PHPUnit's current "[best practices](https://thephp.cc/news/2016/02/questioning-phpunit-best-practices)" for exception testing seem lackluster.
+PHPUnit's current "[best practices](https://thephp.cc/news/2016/02/questioning-phpunit-best-practices)" for exception testing seem.. lackluster ([docs](http://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#writing-tests-for-phpunit-exceptions)).
 
-* Doesn't support multiple exceptions per test, or making any assertions after the exception is thrown
-* Documentation lacks robust or clear examples
-* Non-standard and potentially confusing syntax ("expect" vs "assert")
-* Only supports expectations for message, code, and exception class
-* No inverse, such as "expectNotException"
+Since I [strongly disagree](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478) with the current `expectException` implementation, I made a trait to use on my test cases. It's only [50 lines](https://github.com/jchook/phpunit-assert-throws/blob/master/src/AssertThrows.php).
 
-I opened a [Github issue](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478) for PHPUnit and the maintainer immediately dismissed it.
-
-Since I strongly disagree with the current [`expectException`](http://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#writing-tests-for-phpunit-exceptions) implementation, I made this trait, which I `use` on my test cases.
+* Supports multiple exceptions per test
+* Supports assertions called after the exception is thrown
+* Clear usage examples
+* Standard `assert` syntax
+* Supports assertions for more than just `message`, `code`, and `class`
+* Supports inverse assertion, `assertNotThrows`
 
 
 ## Simple Example
 
 Just to illustrate the spirit behind the syntax:
 
-```php    
+```php
 // Within your test case...
 $this->assertThrows(MyException::class, function() use ($obj) {
 	$obj->doSomethingBad();
@@ -67,14 +66,14 @@ final class MyTest extends TestCase
 	public function testMyObject()
 	{
 		$obj = new MyObject();
-		
+
 		// Test a basic exception is thrown
 		$this->assertThrows(MyException::class, function() use ($obj) {
 			$obj->doSomethingBad();
 		});
-		
+
 		// Test custom aspects of a custom extension class
-		$this->assertThrows(MyException::class, 
+		$this->assertThrows(MyException::class,
 			function() use ($obj) {
 				$obj->doSomethingBad();
 			},
@@ -83,7 +82,7 @@ final class MyTest extends TestCase
 				$this->assertEquals(123, $exception->getCode());
 			}
 		);
-		
+
 		// Test that a specific exception is *NOT* thrown
 		$this->assertNotThrows(MyException::class, function() use ($obj) {
 			$obj->doSomethingGood();
