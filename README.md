@@ -17,7 +17,7 @@ Alternatively, simply [download the one file](https://raw.githubusercontent.com/
 
 PHPUnit's current "[best practices](https://thephp.cc/news/2016/02/questioning-phpunit-best-practices)" for exception testing seem.. lackluster ([docs](http://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#writing-tests-for-phpunit-exceptions)).
 
-Since I [strongly disagree](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478) with the current `expectException` implementation, I made a trait to use on my test cases. It's only [50 lines](https://github.com/jchook/phpunit-assert-throws/blob/master/src/AssertThrows.php).
+Since I [strongly disagree](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478) with the current `expectException` implementation, I made a trait to use on my test cases.
 
 * Supports multiple exceptions per test
 * Supports assertions called after the exception is thrown
