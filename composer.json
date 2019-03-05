@@ -1,19 +1,25 @@
 {
-    "name": "jchook/phpunit-assert-throws",
-    "description": "Exception assertions for PHPUnit",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Wes Roberts",
-            "email": "u36g@a.zinc.email"
-        }
-    ],
-    "autoload": {
-        "psr-4": {
-            "Jchook\\AssertThrows\\": "src/"
-        }
+  "name": "jchook/phpunit-assert-throws",
+  "description": "Exception assertions for PHPUnit",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Wes Roberts",
+      "email": "u36g@a.zinc.email"
     },
-    "minimum-stability": "stable",
-    "require": {}
+    {
+      "name": "Librarian",
+      "email": "librarians.studios@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Jchook\\AssertThrows\\": "src/"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "phpunit/phpunit": "^8.0.0"
+  }
 }
