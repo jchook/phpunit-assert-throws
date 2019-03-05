@@ -1,5 +1,7 @@
 <?php declare(strict_types = 1);
 
+require_once dirname(__DIR__) . '/src/AssertThrows.php';
+
 use Jchook\AssertThrows\AssertThrows;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\AssertionFailedError;
@@ -53,7 +55,7 @@ final class AbstractComparableTest extends TestCase
         $assertion($class, $execute);
     }
 
-    public final function testAssertNotThrows()
+    final public function testAssertNotThrows()
     {
         $this->assertAssertionFails([new DummyAssert(), "assertNotThrows"], Exception::class, "throwException");
         $this->assertAssertionFails([new DummyAssert(), "assertNotThrows"], Error::class, "throwError");
@@ -65,7 +67,7 @@ final class AbstractComparableTest extends TestCase
         $this->assertAssertionSucceeds([new DummyAssert(), "assertNotThrows"], Error::class, "dontThrow");
     }
 
-    public final function testAssertThrows()
+    final public function testAssertThrows()
     {
         $this->assertAssertionFails([new DummyAssert(), "assertThrows"], Error::class, "throwException");
         $this->assertAssertionFails([new DummyAssert(), "assertThrows"], Exception::class, "throwError");
@@ -77,11 +79,9 @@ final class AbstractComparableTest extends TestCase
         $this->assertAssertionSucceeds([new DummyAssert(), "assertThrows"], Error::class, "throwError");
     }
 
-    public final function testAssertThrowsInspector()
+    final public function testAssertThrowsInspector()
     {
         (new DummyAssert())->assertThrows(Exception::class, "throwException", "inspectException");
         (new DummyAssert())->assertThrows(Exception::class, "throwException", "inspectException");
     }
 }
-
-

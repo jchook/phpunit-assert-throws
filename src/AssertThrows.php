@@ -69,10 +69,11 @@ trait AssertThrows
      * @param callable|null $inspect [optional] The inspector.
      * @since   1.0.0
      */
-    public function assertThrows(string $class,
-                                 callable $execute,
-                                 callable $inspect = null) : void
-    {
+    public function assertThrows(
+        string $class,
+        callable $execute,
+        callable $inspect = null
+    ) : void {
         try {
             $execute();
         } catch (ExpectationFailedException $e) {
@@ -80,8 +81,9 @@ trait AssertThrows
         } catch (Throwable $e) {
             $this->assertThat($e, new ConstraintException($class));
 
-            if ($inspect !== null)
+            if ($inspect !== null) {
                 $inspect($e);
+            }
 
             return;
         }
