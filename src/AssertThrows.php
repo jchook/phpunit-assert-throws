@@ -91,6 +91,7 @@ trait AssertThrows
 
             return;
         }
+		
         static::assertThat(null, new ConstraintException($class));
     }
 }
