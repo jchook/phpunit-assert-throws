@@ -55,8 +55,12 @@ trait AssertThrows
         } catch (ExpectationFailedException $e) {
             throw $e;
         } catch (Throwable $e) {
-            $this->assertThat($e, new LogicalNot(new ConstraintException($class)));
+            static::assertThat($e, new LogicalNot(new ConstraintException($class)));
+
+            return;
         }
+
+        static::assertThat(null, new LogicalNot(new ConstraintException($class)));
     }
 
     /**
@@ -79,7 +83,7 @@ trait AssertThrows
         } catch (ExpectationFailedException $e) {
             throw $e;
         } catch (Throwable $e) {
-            $this->assertThat($e, new ConstraintException($class));
+            static::assertThat($e, new ConstraintException($class));
 
             if ($inspect !== null) {
                 $inspect($e);
@@ -87,6 +91,7 @@ trait AssertThrows
 
             return;
         }
-        $this->assertThat(null, new ConstraintException($class));
+		
+        static::assertThat(null, new ConstraintException($class));
     }
 }
