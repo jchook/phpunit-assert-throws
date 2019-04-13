@@ -18,6 +18,9 @@
       "Jchook\\AssertThrows\\": "src/"
     }
   },
+  "scripts": {
+    "tests": "phpunit --bootstrap vendor/autoload.php tests"
+  },
   "minimum-stability": "stable",
   "require": {
     "phpunit/phpunit": ">=7.0.0"
