@@ -1,25 +1,26 @@
 PHPUnit `assertThrows()`
 ========================
 
-Advanced exception testing assertions for PHPUnit.
+Industry standard, lambda-based exception testing assertions for PHPUnit.
 
 
 Installation
 ------------
 
-You can install it with composer, if you use that.
+Easily install it with composer:
 
 ```sh
 composer require --dev jchook/phpunit-assert-throws
 ```
 
-Alternatively, [download the one file](https://raw.githubusercontent.com/jchook/phpunit-assert-throws/master/src/AssertThrows.php) and require it.
+Or, alternatively [copy the tiny gist](https://raw.githubusercontent.com/jchook/phpunit-assert-throws/master/src/AssertThrows.php) and add it to you project. No attribution is requried. True artists steal.
 
 
 Rationale
 ---------
 
-Use this simple PHPUnit add-on for advanced exception testing with [PHPUnit](https://docs.phpunit.de/en/10.4/writing-tests-for-phpunit.html#expecting-exceptions).
+To enable lambda-based exception testing syntax to
+[PHPUnit](https://docs.phpunit.de/en/10.4/writing-tests-for-phpunit.html#expecting-exceptions).
 
 - Throw multiple errors per test
 - Examine and test errors after they are caught
@@ -104,7 +105,7 @@ final class MyTest extends TestCase
 
 ## Notes
 
-Yes, `assertNotThrows()` feels grammatically… odd. However, it conforms with the PHPUnit naming conventions, such as [`assertNotContains()`](https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertContains). Additionally, the PHPUnit team believes that [we don't need this inverse assertion](https://github.com/sebastianbergmann/phpunit-documentation/issues/171).
+Yes, `assertNotThrows()` feels grammatically… odd. However, it conforms with the PHPUnit naming conventions, such as [`assertNotContains()`](https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertContains). Additionally, the PHPUnit team suggests [we may not need this inverse assertion](https://github.com/sebastianbergmann/phpunit-documentation/issues/171).
 
 
 ## License
