@@ -14,18 +14,18 @@ Alternatively, [download the one file](https://raw.githubusercontent.com/jchook/
 
 ## Rationale
 
-PHPUnit's current [best practices](https://web.archive.org/web/20220524152124/https://thephp.cc/articles/questioning-phpunit-best-practices) (i.e. [expectException](http://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#writing-tests-for-phpunit-exceptions)) for exception handling do not meet [our expectations](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478).
+PHPUnit's Exception testing [best practices](https://web.archive.org/web/20220524152124/https://thephp.cc/articles/questioning-phpunit-best-practices) (i.e. [expectException](https://docs.phpunit.de/en/10.4/writing-tests-for-phpunit.html#expecting-exceptions)) work excellently for most situations, but lacks [advanced Throwable error testing ergonomics](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478).
 
-Instead, you can use this simple PHPUnit add-on to provide familiar and convenient exception testing.
+Use this simple PHPUnit add-on to provide familiar and convenient exception testing.
 
-- Supports multiple exceptions per test
-- Supports assertions called after the exception is thrown
-- Clear usage examples
-- Standard `assert` syntax
-- Supports assertions for more than just `message`, `code`, and `class`
-- Supports inverse assertion, `assertNotThrows`
+- Throw multiple errors per test
+- Examine and test errors after they are caught
+- Copy-paste usage examples
+- Use standard `assert*` syntax
+- Test more than just `message`, `code`, and `class`
+- Write simple happy-path tests with `assertNotThrows`
 
-## Simple Example
+## Example
 
 Just to illustrate the spirit behind the syntax:
 
@@ -36,11 +36,9 @@ $this->assertThrows(MyException::class, function() use ($obj) {
 });
 ```
 
-Pretty neat?
-
 ---
 
-## Full Usage Example
+## Advanced Example
 
 The TestCase class below shows a more comprehensive usage example:
 
@@ -95,7 +93,8 @@ final class MyTest extends TestCase
 
 ## Notes
 
-You may think that `assertNotThrows()` feels grammatically… odd. However, it conforms with the PHPUnit naming conventions, such as [`assertNotContains()`](https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertContains). Additionally, the PHPUnit team believes that [we don't need this inverse assertion](https://github.com/sebastianbergmann/phpunit-documentation/issues/171).
+Admittedly, `assertNotThrows()` feels grammatically… odd. However, it conforms with the PHPUnit naming conventions, such as [`assertNotContains()`](https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertContains). Additionally, the PHPUnit team believes that [we don't need this inverse assertion](https://github.com/sebastianbergmann/phpunit-documentation/issues/171).
+
 
 ## License
 
