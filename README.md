@@ -4,28 +4,26 @@ Exception testing assertions for PHPUnit.
 
 ## Installation
 
-You can install with composer if you're into that. Just make sure that your `vendor/autoload.php` file is included in your PHPUnit bootstrap file.
+You can install it with composer, if you use that.
 
 ```sh
 composer require --dev jchook/phpunit-assert-throws
 ```
 
-Alternatively, simply [download the one file](https://raw.githubusercontent.com/jchook/phpunit-assert-throws/master/src/AssertThrows.php) and include it in your project.
-
+Alternatively, [download the one file](https://raw.githubusercontent.com/jchook/phpunit-assert-throws/master/src/AssertThrows.php) and require it.
 
 ## Rationale
 
-PHPUnit's current "[best practices](https://thephp.cc/news/2016/02/questioning-phpunit-best-practices)" for exception testing seem.. lackluster ([docs](http://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#writing-tests-for-phpunit-exceptions)).
+PHPUnit's current [best practices](https://web.archive.org/web/20220524152124/https://thephp.cc/articles/questioning-phpunit-best-practices) (i.e. [expectException](http://phpunit.readthedocs.io/en/7.1/writing-tests-for-phpunit.html#writing-tests-for-phpunit-exceptions)) for exception handling do not meet [our expectations](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478).
 
-Since I [wanted more](https://github.com/sebastianbergmann/phpunit/issues/3071#issuecomment-379301478) than the current `expectException` implementation, I made a trait to use on my test cases.
+Instead, you can use this simple PHPUnit add-on to provide familiar and convenient exception testing.
 
-* Supports multiple exceptions per test
-* Supports assertions called after the exception is thrown
-* Clear usage examples
-* Standard `assert` syntax
-* Supports assertions for more than just `message`, `code`, and `class`
-* Supports inverse assertion, `assertNotThrows`
-
+- Supports multiple exceptions per test
+- Supports assertions called after the exception is thrown
+- Clear usage examples
+- Standard `assert` syntax
+- Supports assertions for more than just `message`, `code`, and `class`
+- Supports inverse assertion, `assertNotThrows`
 
 ## Simple Example
 
@@ -42,20 +40,22 @@ Pretty neat?
 
 ---
 
-
 ## Full Usage Example
 
-Here is an actual TestCase class that shows a more comprehensive usage example:
+The TestCase class below shows a more comprehensive usage example:
 
 ```php
 <?php
 
 declare(strict_types=1);
 
+// PHPUnit
 use PHPUnit\Framework\TestCase;
+
+// This library
 use Jchook\AssertThrows\AssertThrows;
 
-// These are just for illustration
+// Your classes
 use MyNamespace\MyException;
 use MyNamespace\MyObject;
 
@@ -67,7 +67,7 @@ final class MyTest extends TestCase
 	{
 		$obj = new MyObject();
 
-		// Test a basic exception is thrown
+		// Ensure that a function throws a specific exception
 		$this->assertThrows(MyException::class, function() use ($obj) {
 			$obj->doSomethingBad();
 		});
@@ -83,7 +83,7 @@ final class MyTest extends TestCase
 			}
 		);
 
-		// Test that a specific exception is *NOT* thrown
+		// Test that a specific method does *NOT* throw
 		$this->assertNotThrows(MyException::class, function() use ($obj) {
 			$obj->doSomethingGood();
 		});
@@ -95,8 +95,7 @@ final class MyTest extends TestCase
 
 ## Notes
 
-I realize that `assertNotThrows()` is grammatically... odd, but it's in keeping with the PHPUnit naming conventions, such as [`assertNotContains()`](https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertContains). Additionally, the PHPUnit team's philosophy is that [this inverse assertion is not even needed](https://github.com/sebastianbergmann/phpunit-documentation/issues/171).
-
+You may think that `assertNotThrows()` feels grammatically… odd. However, it conforms with the PHPUnit naming conventions, such as [`assertNotContains()`](https://phpunit.de/manual/current/en/appendixes.assertions.html#appendixes.assertions.assertContains). Additionally, the PHPUnit team believes that [we don't need this inverse assertion](https://github.com/sebastianbergmann/phpunit-documentation/issues/171).
 
 ## License
 
