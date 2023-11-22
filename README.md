@@ -39,7 +39,10 @@ Just to illustrate the spirit behind the syntax:
 
 // Within your test case...
 $x = new MyTestedObject();
-$this->assertThrows(MyException::class, fn() => $x->doSomethingBad());
+$this->assertThrows(
+  MyException::class,
+  fn() => $x->doSomethingBad()
+);
 ```
 
 ---
